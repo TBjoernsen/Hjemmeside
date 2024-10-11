@@ -4,6 +4,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="Styles.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script type="text/javascript">
+    var now = new Date();
+    var event = new Date("Oct 11 2024 15:30:00");
+    var seconds = (now - event) / 1000;
+    var minutes = seconds / 60;
+    var hours = minutes / 60;
+    var days = hours / 24;
+    var ID=window.setInterval(function() {update(), 1000});
+    function update()
+    {
+    now = new Date();
+    seconds = (event - now) / 1000;
+    seconds = Math.round(seconds);
+    minutes = seconds / 60;
+    minutes = Math.round(minutes);
+    hours = minutes / 60;
+    hours = Math.round(hours);
+    days = hours / 24;
+    days = Math.round(days);
+    document.getElementById('days').value = days;
+    document.getElementById('hours').value = hours;
+    document.getElementById('minutes').value = minutes;
+    document.getElementById('seconds').value = seconds;
+    }
+    </script>
 </head>
 <body>
 
@@ -16,7 +41,11 @@
   <a class="active" href="countdn.html">Countdown</a>
 </div>
 
-<!-- Det her er Hjem -->
+<h1>Nedt&aelig;lling til vi skal hjem</h1>
+<p id="cnt">Der er <input type="text" id="days" value="0" style="width:40px;" /> dage eller
+<input type="text" id="hours" value="0" style="width:70px;"/>timer eller
+<input type="text" id="minutes" value="0" style="width:70px;"/> minutter, eller
+<input type="text" id="seconds" value="0" style="width:70px;"/> sekunder til vi skal hjem</p>
 
 </body>
 </html>
