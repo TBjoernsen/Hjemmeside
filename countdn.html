@@ -14,32 +14,43 @@
     var ID=window.setInterval(function() {update(), 1000});
     function update()
     {
-    now = new Date();
-    days = hours / 24;
-    days = Math.round(days);
-    hours = minutes / 60;
-    hours = Math.round(hours);
-    minutes = seconds / 60;
-    minutes = Math.round(minutes);
-    seconds = (event - now) / 1000;
+    var now = new Date();
+
+    var time = (event - now);
+
+    var seconds = time/1000
     seconds = Math.round(seconds);
+    seconds = seconds % 60
+
+    var minutes = time / (1000 * 60);
+    minutes = Math.round(minutes);
+    minutes = minutes % 60
+
+    var hours = time / (1000 * 60 * 60);
+    hours = Math.round(hours);
+    hours = hours % 60
+
+    var days = time / (1000 * 60 * 60 * 24);
+    days = Math.round(days);
+    days = days % 24
 
     document.getElementById('days').value = days;
     document.getElementById('hours').value = hours;
     document.getElementById('minutes').value = minutes;
     document.getElementById('seconds').value = seconds;
     }
+
     </script>
 </head>
 <body>
 
 <div class="topnav">
   <a href="index.html"><i class="fa-solid fa-house"></i></a>
-  <a href="studietur.html">Studietur</a>
-  <a href="kort.html">Kort</a>
-  <a href="om.html">Om</a>
-  <a href="videos.html">Videoer</a>
-  <a class="active" href="countdn.html">Countdown</a>
+  <a href="studietur.html"><i class="fa-solid fa-plane-departure"></i></a>
+  <a href="kort.html"><i class="fa-solid fa-map"></i></a>
+  <a href="om.html"><i class="fa-solid fa-user"></i></a>
+  <a href="videos.html"><i class="fa-solid fa-video"></i></a>
+  <a class="active" href="countdn.html"><i class="fa-solid fa-clock"></i></a>
 </div>
 
 <h1>Nedt&aelig;lling til vi skal hjem</h1>
