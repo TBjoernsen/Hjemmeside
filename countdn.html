@@ -4,43 +4,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="Styles.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<meta charset="UTF-8">
+<title>Nedtælling</title>
 <script type="text/javascript">
     var now = new Date();
-    var event = new Date("Oct 11 2024 15:30:00");
-    var days = hours / 24;
-    var hours = minutes / 60;
-    var minutes = seconds / 60;
-    var seconds = (now - event) / 1000;
-    var ID=window.setInterval(function() {update(), 1000});
-    function update()
-    {
-    var now = new Date();
 
-    var time = (event - now);
+    // Set the target dates for each countdown
+    var event1 = new Date("Oct 11 2024 15:30:00");
+    var event2 = new Date("Dec 20 2024 15:30:00");
+    var event3 = new Date("Jun 27 2026 12:00:00");
 
-    var seconds = time/1000
-    seconds = Math.round(seconds);
-    seconds = seconds % 60
+    // Update interval to refresh every second
+    var ID = window.setInterval(function() { update(), 1000 });
 
-    var minutes = time / (1000 * 60);
-    minutes = Math.round(minutes);
-    minutes = minutes % 60
+    function update() {
+        var now = new Date();
 
-    var hours = time / (1000 * 60 * 60);
-    hours = Math.round(hours);
-    hours = hours % 60
-
-    var days = time / (1000 * 60 * 60 * 24);
-    days = Math.round(days);
-    days = days % 24
-
-    document.getElementById('days').value = days;
-    document.getElementById('hours').value = hours;
-    document.getElementById('minutes').value = minutes;
-    document.getElementById('seconds').value = seconds;
+        updateCountdown('days1', 'hours1', 'minutes1', 'seconds1', event1);
+        updateCountdown('days2', 'hours2', 'minutes2', 'seconds2', event2);
+        updateCountdown('days3', 'hours3', 'minutes3', 'seconds3', event3);
     }
 
-    </script>
+    function updateCountdown(daysID, hoursID, minutesID, secondsID, event) {
+        var now = new Date();
+        var time = (event - now);
+
+        var seconds = Math.round(time / 1000) % 60;
+        var minutes = Math.round(time / (1000 * 60)) % 60;
+        var hours = Math.round(time / (1000 * 60 * 60)) % 24;
+        var days = Math.round(time / (1000 * 60 * 60 * 24));
+
+        document.getElementById(daysID).value = days;
+        document.getElementById(hoursID).value = hours;
+        document.getElementById(minutesID).value = minutes;
+        document.getElementById(secondsID).value = seconds;
+    }
+</script>
 </head>
 <body>
 
@@ -53,11 +52,25 @@
   <a class="active" href="countdn.html"><i class="fa-solid fa-clock"></i></a>
 </div>
 
-<h1>Nedt&aelig;lling til vi skal hjem</h1>
-<p id="cnt">Der er <input type="text" id="days" value="0" style="width:40px;" /> dage
-<input type="text" id="hours" value="0" style="width:70px;"/> time(r)
-<input type="text" id="minutes" value="0" style="width:70px;"/> minutter og
-<input type="text" id="seconds" value="0" style="width:70px;"/> sekunder til vi skal hjem</p>
+<h1>Nedtællinger</h1>
+
+    <h3>Efterårsferie (11. oktober 2024, 15:30)</h3>
+    <p>Der er <input type="text" id="days1" value="0" style="width:40px;" /> dage
+    <input type="text" id="hours1" value="0" style="width:70px;"/> time(r)
+    <input type="text" id="minutes1" value="0" style="width:70px;"/> minutter og
+    <input type="text" id="seconds1" value="0" style="width:70px;"/> sekunder til denne begivenhed.</p>
+
+    <h3>Juleferie (20. december 2024, 15:30)</h3>
+    <p>Der er <input type="text" id="days2" value="0" style="width:40px;" /> dage
+    <input type="text" id="hours2" value="0" style="width:70px;"/> time(r)
+    <input type="text" id="minutes2" value="0" style="width:70px;"/> minutter og
+    <input type="text" id="seconds2" value="0" style="width:70px;"/> sekunder til denne begivenhed.</p>
+
+    <h3>Frihed (27. juni 2026, 12:00)</h3>
+    <p>Der er <input type="text" id="days3" value="0" style="width:40px;" /> dage
+    <input type="text" id="hours3" value="0" style="width:70px;"/> time(r)
+    <input type="text" id="minutes3" value="0" style="width:70px;"/> minutter og
+    <input type="text" id="seconds3" value="0" style="width:70px;"/> sekunder til denne begivenhed.</p>
 
 </body>
 </html>
