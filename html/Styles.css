@@ -81,4 +81,46 @@ body {
     color: white;
   }
   
+
+  .polaroid-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.polaroid {
+    width: 220px;
+    padding: 10px 10px 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    transition: all 0.3 ease;
+}
+
+.polaroid img {
+    display: block;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 200px;
+}
+
+.polaroid .caption {
+    font-family: 'Arial', sans-serif;
+    font-size: 15px;
+    color: #333;
+}
+
+.polaroid:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
+}
+
+.caption {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+}
   
